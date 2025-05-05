@@ -5,10 +5,10 @@ Resource   ../resources/variables.robot
 *** Test Cases ***
 Open App and Check Main Screen
     [Documentation]    Buka aplikasi dan cek tampilan awal muncul di Browserstack
-    Open Application    ${REMOTE_URL_LOCAL}
-    ...    platformName=${PLATFORM_NAME_LOCAL}
-    ...    deviceName=${DEVICE_NAME_LOCAL}
-    ...    app=${APP_LOCAL}
+    Open Application    ${REMOTE_URL_BROWSERSTACK}
+    ...    platformName=${PLATFORM_NAME_BROWSERSTACK}
+    ...    deviceName=${DEVICE_NAME_BROWSERSTACK}
+    ...    app=${APP_BROWSERSTACK}
     ...    automationName=${AUTOMATION_NAME}
     ...    appPackage=com.example.login_demo
     ...    appActivity=com.example.login_demo.MainActivity
