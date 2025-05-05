@@ -11,7 +11,7 @@ Open App and Check Main Screen
     ...    app=${APP_BROWSERSTACK}
     ...    automationName=${AUTOMATION_NAME}
     ...    appPackage=com.swaglabsmobileapp
-    ...    appActivity=com.swaglabsmobileapp.MainActivity
+    ...    appActivity=com.swaglabsmobileapp.SplashActivity
     ...    autoGrantPermissions=true
 
     Wait Until Page Contains Element    xpath=//android.widget.TextView[contains(@text, 'usernames')]    10s
