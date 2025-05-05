@@ -16,10 +16,10 @@ Open App and Check Main Screen
 
     Wait Until Page Contains Element    accessibility_id=Login Page    5s
 
-    Click Element    xpath=//android.widget.EditText[@hint='Username']
-    Input Text       xpath=//android.widget.EditText[@hint='Username']    admin
-    Click Element    xpath=//android.widget.EditText[@hint='Password']
-    Input Text       xpath=//android.widget.EditText[@hint='Password']    password
+    Click Element    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]
+    Input Text       xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]    admin
+    Click Element    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]
+    Input Text       xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]    password
     Click Element    accessibility_id=Login
     Wait Until Element Is Visible    accessibility_id=Login Success    timeout=5s
     Element Should Be Visible        xpath=//android.view.View[@content-desc="Login Success"]
