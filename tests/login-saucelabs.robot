@@ -4,11 +4,11 @@ Resource   ../resources/variables.robot
 
 *** Test Cases ***
 Open App and Check Main Screen
-    [Documentation]    Buka aplikasi dan cek tampilan awal muncul
-    Open Application    ${REMOTE_URL}
-    ...    platformName=${PLATFORM_NAME}
-    ...    deviceName=${DEVICE_NAME}
-    ...    app=${APP}
+    [Documentation]    Buka aplikasi dan cek tampilan awal muncul di Browserstack
+    Open Application    ${REMOTE_URL_BROWSERSTACK}
+    ...    platformName=${PLATFORM_NAME_BROWSERSTACK}
+    ...    deviceName=${DEVICE_NAME_BROWSERSTACK}
+    ...    app=${APP_BROWSERSTACK}
     ...    automationName=${AUTOMATION_NAME}
     ...    appPackage=com.swaglabsmobileapp
     ...    appActivity=com.swaglabsmobileapp.MainActivity
@@ -22,7 +22,5 @@ Open App and Check Main Screen
     Click Element    accessibility_id=test-LOGIN
     Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="PRODUCTS"]    timeout=10s
     Element Text Should Be           xpath=//android.widget.TextView[@text="PRODUCTS"]    PRODUCTS
-
-
 
     [Teardown]    Close Application
