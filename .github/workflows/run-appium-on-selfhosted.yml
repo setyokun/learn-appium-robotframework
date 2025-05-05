@@ -1,0 +1,25 @@
+name: Android Appium Test on BrowserStack (Self-Hosted)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install robotframework
+          python3 -m pip install robotframework-appiumlibrary
+
+      - name: Run Robot Tests on BrowserStack
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        run: |
+          robot tests/login-saucelabs.robot

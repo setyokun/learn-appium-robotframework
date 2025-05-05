@@ -1,25 +1,34 @@
-name: Android Appium Test on BrowserStack
+name: Android Appium Test on Full BrowserStack
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [run-tests]
 
 jobs:
   run-tests:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+
+    env:
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+      APP_BROWSERSTACK: ${{ github.event.client_payload.app_url || 'bs://stub-app-url' }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install robotframework
-          python3 -m pip install robotframework-appiumlibrary
+          pip install --upgrade pip
+          pip install robotframework robotframework-appiumlibrary
 
       - name: Run Robot Tests on BrowserStack
-        env:
-          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
         run: |
-          robot tests/login-saucelabs.robot
+          echo "Running tests with APP URL: $APP_BROWSERSTACK"
+          robot --variable APP_BROWSERSTACK:"$APP_BROWSERSTACK" tests/login-saucelabs.robot

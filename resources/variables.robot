@@ -11,4 +11,4 @@ ${BROWSERSTACK_URL}                 https://hub-cloud.browserstack.com/wd/hub
 ${REMOTE_URL_BROWSERSTACK}          https://%{BROWSERSTACK_USERNAME}:%{BROWSERSTACK_ACCESS_KEY}@hub-cloud.browserstack.com/wd/hub
 ${PLATFORM_NAME_BROWSERSTACK}       Android
 ${DEVICE_NAME_BROWSERSTACK}         Google Pixel 7
-${APP_BROWSERSTACK}                 bs://fea9e4ace98aa315e60beda356950e1c4b71d565
+${APP_BROWSERSTACK}                 %{APP_BROWSERSTACK}
