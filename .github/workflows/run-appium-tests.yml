@@ -7,24 +7,19 @@ jobs:
   run-tests:
     runs-on: self-hosted
 
-    env:
-      RUNNER_TEMP: /tmp
-      RUNNER_TOOL_CACHE: /tmp/toolcache
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+      - name: Check Python Version
+        run: python3 --version
 
       - name: Install dependencies
         run: |
-          pip install robotframework
-          pip install robotframework-appiumlibrary
+          python3 -m pip install --upgrade pip
+          python3 -m pip install robotframework
+          python3 -m pip install robotframework-appiumlibrary
 
       - name: Run Appium Tests
         run: |
-          robot tests/login-saucelabs.robot
+          python3 -m robot tests/login-saucelabs.robot
