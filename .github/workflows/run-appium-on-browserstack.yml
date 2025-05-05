@@ -31,4 +31,4 @@ jobs:
       - name: Run Robot Tests on BrowserStack
         run: |
           echo "Running tests with APP URL: $APP_BROWSERSTACK"
-          robot --variable APP_BROWSERSTACK:"$APP_BROWSERSTACK" tests/login-saucelabs.robot
+          robot --variable APP_BROWSERSTACK:"$APP_BROWSERSTACK" tests/login-demo.robot
